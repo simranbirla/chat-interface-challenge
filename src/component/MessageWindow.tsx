@@ -1,11 +1,20 @@
 import { MessageSquare, Settings } from 'lucide-react';
-import { useState } from 'react'
-import { mockData, suggestionMessages } from '../utils/data';
+import { useContext, useEffect, useRef, useState } from 'react'
+import { suggestionMessages } from '../utils/data';
 import Message from './Message';
 import SuggestionTexts from './SuggestionTexts';
+import TextForm from './TextForm';
+import { MessageStore } from '../context/MessagesContext';
 
 export default function MessageWindow() {
     const [open, setOpen] = useState<boolean>(true);
+    const { messages } = useContext(MessageStore)
+    const messagesEndRef = useRef<HTMLDivElement | null>(null);
+
+
+    useEffect(() => {
+        messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    }, [messages]);
 
     return (
         <div className='w-[100vw] h-[100vh] dark:bg-black dark:text-white flex justify-center items-center'>
@@ -25,14 +34,16 @@ export default function MessageWindow() {
                         <Settings className='size-8 text-gray-500' />
                     </div>
                 </div>
-                <div className='bg-gray-200 overflow-y-auto flex gap-2 flex-col px-6 border-b-gray-50 border-b-2'>
-                    {mockData.map(msg => <Message key={msg.id} {...msg} />)}
+                <div ref={messagesEndRef} className='bg-gray-200 overflow-y-auto flex gap-2 flex-col px-6 border-b-gray-50 border-b-2 min-h-[50%]'>
+                    {messages.map(msg => <Message key={msg.id} {...msg} />)}
                 </div>
 
-                <div className='px-6 py-2 flex gap-3'>
+                <div className='px-6 py-2 flex gap-3 border-b-gray-50 border-b-2'>
                     {suggestionMessages.map((msg, id) => <SuggestionTexts data={msg} key={id} />)}
                 </div>
-                <div></div>
+                <div className='px-6 py-2'>
+                    <TextForm />
+                </div>
             </div> : <button onClick={() => setOpen(true)}>Open Chat Window</button>}
         </div>
     )
