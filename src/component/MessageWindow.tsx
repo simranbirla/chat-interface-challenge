@@ -1,4 +1,4 @@
-import { MessageSquare, Settings } from 'lucide-react';
+import { Loader2, MessageSquare, Settings } from 'lucide-react';
 import { useContext, useEffect, useRef, useState } from 'react'
 import { suggestionMessages } from '../utils/data';
 import Message from './Message';
@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router';
 export default function MessageWindow() {
     const [open, setOpen] = useState<boolean>(true);
     const [text, setText] = useState('');
-    const { messages } = useContext(MessageStore)
+    const { messages, loading } = useContext(MessageStore)
     const messagesEndRef = useRef<HTMLDivElement | null>(null);
 
     const navigate = useNavigate()
@@ -37,12 +37,15 @@ export default function MessageWindow() {
                             <p className='text-gray-600 dark:text-gray-300 text-sm'>Speech Recognition Enabled</p>
                         </div>
                     </div>
-                    <div onClick={() => navigate('/settings')}>
+                    <div className='cursor-pointer' onClick={() => navigate('/settings')}>
                         <Settings className='size-8 text-gray-500' />
                     </div>
                 </div>
                 <div ref={messagesEndRef} className='bg-gray-200 dark:bg-gray-900 overflow-y-auto flex gap-2 flex-col px-6 dark:border-b-gray-800 border-b-gray-50 border-b-2 min-h-[50%]'>
                     {messages.map(msg => <Message key={msg.id} {...msg} />)}
+                    {loading && <div className={`p-4 rounded-xl text-base my-2 font-light max-w-[80%] flex flex-col gap-1  md:max-w-[45%] bg-white dark:bg-[#222] dark:text-white self-start`}>
+                        <Loader2 className='animate-spin size-12' />
+                    </div>}
                 </div>
 
                 <div className='px-6 py-2 flex gap-3 border-b-gray-50 dark:border-b-gray-800 border-b-2'>
