@@ -1,7 +1,15 @@
+import 'regenerator-runtime/runtime'
+import { Route, Routes } from 'react-router'
+import HomePage from './HomePage'
+import SettingsPage from './SettingsPage'
+
 function App() {
 
   return (
-    <div className='text-2xl justify-center items-center dark:bg-black dark:text-white '>HELLO</div>
+    <Routes>
+      <Route path='/' element={<HomePage />} />
+      <Route path="/settings" element={<SettingsPage />} />
+    </Routes>
   )
 }
 
