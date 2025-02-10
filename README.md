@@ -1,50 +1,153 @@
-# React + TypeScript + Vite
+# AI Chat Interface Challenge 🚀
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to our Senior React Developer technical challenge! This challenge invites you to build a modern, intelligent chat interface that showcases your expertise in React development, browser APIs, and modern frontend architecture.
 
-Currently, two official plugins are available:
+## 🎯 Challenge Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Create a sophisticated AI chat interface that processes text and speech input, manages complex state, and provides a polished user experience. Your solution will demonstrate your ability to:
 
-## Expanding the ESLint configuration
+-   Implement modern React patterns
+-   Integrate browser APIs
+-   Design responsive interfaces
+-   Manage complex application state
+-   Handle real-time interactions
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## 🏗️ System Components
 
-- Configure the top-level `parserOptions` property like this:
+The application consists of three main components:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+-   **Chat Interface**: Modern React implementation with message threading
+-   **Speech Recognition**: Browser API integration for voice input
+-   **Mock Backend**: Simple API for message processing
+
+## 💡 Core Features
+
+### Chat Interface
+
+![Chat Interface Screenshot](./assets/interface.png)
+
+-   Real-time message thread
+-   Speech-to-text input support
+-   Theme switching (dark/light mode)
+-   Quick reply suggestions
+-   Settings panel
+-   Loading states and error handling
+
+## ⏱️ Time Expectations
+
+While you have 24 hours to submit, the challenge is designed for 2 hours of focused development time. The window allows for:
+
+-   Core implementation
+-   Documentation
+-   Testing and refinement
+-   Docker configuration
+
+## 📋 Repository Structure
+
+```
+your-solution/
+├── src/
+│   ├── components/
+│   ├── hooks/
+│   ├── context/
+│   ├── services/
+│   └── types/
+├── Dockerfile
+├── docker-compose.yml
+└── README.md
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## 🚀 Getting Started
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+1. Clone this repository
+2. Review specifications.md
+3. Implement your solution
+4. Test and document
+5. Submit your repository
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+## 🐳 Docker Setup
+
+Your solution must include proper Docker configuration:
+
+```yaml
+services:
+    app:
+        build: .
+        ports:
+            - "3000:3000"
+        environment:
+            - NODE_ENV=production
 ```
+
+## 📮 Submission Requirements
+
+1. Public GitHub repository
+2. Complete source code
+3. Docker configuration
+4. Comprehensive README
+5. Implementation documentation
+
+### Required Documentation
+
+1. Setup instructions
+2. Architecture overview
+3. Implementation decisions
+4. Testing approach
+
+## 🎯 Evaluation Criteria
+
+### Technical Excellence (40%)
+
+-   Code quality and organization
+-   React patterns implementation
+-   Performance optimization
+-   Error handling
+-   Testing approach
+
+### Feature Implementation (30%)
+
+-   Chat interface functionality
+-   Speech recognition integration
+-   State management
+-   Theme implementation
+-   Responsive design
+
+### Best Practices (30%)
+
+-   Documentation quality
+-   Git practices
+-   Docker configuration
+-   Code organization
+-   Development setup
+
+## 🎯 Success Criteria
+
+Your solution should demonstrate:
+
+-   Clean, maintainable React code
+-   Modern component architecture
+-   Thoughtful state management
+-   Professional documentation
+-   Smooth user experience
+
+## 🚀 Running Your Solution
+
+```bash
+# Clone repository
+git clone [your-repository-url]
+
+# Navigate to project
+cd [project-directory]
+
+# Start with Docker
+docker-compose up
+
+# Access application
+open http://localhost:3000
+```
+
+## 🤝 Questions?
+
+For any clarifications, feel free to reach out via LinkedIn.
+
+Ready to showcase your React expertise? Let's see what you can build! 🚀
