@@ -51,7 +51,7 @@ export default function SpeechModal({ handleOpen }: TSpeechModal) {
 
     return (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm">
-            <div className="relative bg-white p-6 rounded-2xl shadow-lg w-80 min-h-80 flex flex-col gap-2 items-center justify-center">
+            <div className="relative bg-white p-6 rounded-2xl shadow-lg dark:bg-gray-800 w-80 min-h-80 flex flex-col gap-2 items-center justify-center">
                 <button
                     className="absolute top-3 right-3 text-gray-500 cursor-pointer hover:text-gray-700"
                     onClick={() => handleClose()}
@@ -59,7 +59,7 @@ export default function SpeechModal({ handleOpen }: TSpeechModal) {
                     <X size={24} />
                 </button>
 
-                <div className='p-8 rounded-full animate-pulse bg-blue-300'>
+                <div className='p-8 rounded-full animate-pulse dark:bg-blue-100 bg-blue-300'>
                     <Mic size={60} className="text-blue-500" />
                 </div>
                 {!listening && <p className='text-sm'>Cannot hear</p>}

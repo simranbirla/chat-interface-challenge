@@ -48,15 +48,15 @@ export default function TextForm({ handleText, text }: TTextForm) {
     return (
         <>
             <div className='flex gap-2 w-full items-center'>
-                <input onChange={(e) => handleText(e.target.value)} value={text} type="text" placeholder='Write your question here..' className='w-[90%] text-base p-2 rounded-3xl border-2 dark:border-gray-500 border-gray-100' />
+                <input onChange={(e) => handleText(e.target.value)} value={text} type="text" placeholder='Write your question here..' className='w-[90%] input-box text-base p-2 rounded-3xl border-2 dark:border-gray-500 border-gray-100' />
                 {speechEnabled ? <div className='size-10 p-2 rounded-full bg-gray-400 text-gray-800 cursor-pointer' onClick={() => handleModal()}>
                     <Mic className='size-6' />
                 </div> : <div className='size-10 p-2 rounded-full bg-gray-400 text-gray-800 cursor-pointer'>
                     <MicOff className='size-6' />
                 </div>}
-                <div className='size-10 p-2 rounded-full bg-blue-600 text-white cursor-pointer' onClick={handleSend}>
+                <button className='size-10 send-btn p-2 rounded-full bg-blue-600 text-white cursor-pointer' onClick={handleSend}>
                     <Send className='size-6' />
-                </div>
+                </button>
             </div>
             {open && <SpeechModal open={open} handleOpen={handleOpen} />}
         </>
