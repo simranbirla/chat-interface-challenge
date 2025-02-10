@@ -1,7 +1,7 @@
 import 'regenerator-runtime/runtime'
 import { Route, Routes } from 'react-router'
-import HomePage from './HomePage'
-import SettingsPage from './SettingsPage'
+import HomePage from './pages/HomePage'
+import SettingsPage from './pages/SettingsPage'
 import { useEffect } from 'react'
 import { languages } from './utils/languages'
 

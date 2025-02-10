@@ -1,8 +1,8 @@
 import { useContext, useState } from 'react'
 import SpeechModal from './SpeechModal';
 import { Mic, MicOff, Send } from 'lucide-react';
-import { MessageStore } from '../context/MessagesContext';
-import { MsgType, Sender } from '../utils/enums';
+import { MessageStore } from '../../context/MessagesContext';
+import { MsgType, Sender } from '../../utils/enums';
 import { useSpeechRecognition } from 'react-speech-recognition';
 
 export type TTextForm = {

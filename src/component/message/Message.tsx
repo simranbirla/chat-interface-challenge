@@ -1,7 +1,7 @@
 import { Mic } from 'lucide-react'
-import { formatAMPM } from '../utils/formatMessage'
-import { MsgType, Sender } from '../utils/enums'
-import { TMessage } from '../types/messages'
+import { formatAMPM } from '../../utils/formatMessage'
+import { MsgType, Sender } from '../../utils/enums'
+import { TMessage } from '../../types/messages'
 
 
 export default function Message({ type, timestamp, content, msgType }: TMessage) {

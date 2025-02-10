@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { Sun, Moon } from "lucide-react";
-import { languages } from "./utils/languages";
-import { Themes, ThemeStore } from "./context/ThemeContext";
+import { Themes, ThemeStore } from "../../context/ThemeContext";
+import { languages } from "../../utils/languages";
 
 const Settings: React.FC = () => {
     const [speechEnabled, setSpeechEnabled] = useState(localStorage.getItem("speech") ?? "true")

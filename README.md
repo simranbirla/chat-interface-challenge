@@ -45,7 +45,11 @@ While you have 24 hours to submit, the challenge is designed for 2 hours of focu
 ## 📋 Repository Structure
 
 ```
-your-solution/
+app/
+├──cypress/
+│   ├── e2e
+│   ├── fixtures/
+│   ├── screenshots/
 ├── src/
 │   ├── components/
 │   ├── hooks/

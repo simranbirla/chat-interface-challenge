@@ -1,9 +1,9 @@
 import { Mic, Send, X } from 'lucide-react';
 import { useContext, useEffect } from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
-import { MessageStore } from '../context/MessagesContext';
-import { MsgType, Sender } from '../utils/enums';
-import { languages } from '../utils/languages';
+import { MessageStore } from '../../context/MessagesContext';
+import { MsgType, Sender } from '../../utils/enums';
+import { languages } from '../../utils/languages';
 
 
 export type TSpeechModal = {

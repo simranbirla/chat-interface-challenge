@@ -1,10 +1,10 @@
 import { Loader2, MessageSquare, Settings } from 'lucide-react';
 import { useContext, useEffect, useRef, useState } from 'react'
-import { suggestionMessages } from '../utils/data';
+import { suggestionMessages } from '../../utils/data';
 import Message from './Message';
 import SuggestionTexts from './SuggestionTexts';
 import TextForm from './TextForm';
-import { MessageStore } from '../context/MessagesContext';
+import { MessageStore } from '../../context/MessagesContext';
 import { useNavigate } from 'react-router';
 
 export default function MessageWindow() {
