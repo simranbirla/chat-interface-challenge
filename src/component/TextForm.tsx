@@ -1,13 +1,18 @@
-import React, { useContext, useState } from 'react'
+import { useContext, useState } from 'react'
 import SpeechModal from './SpeechModal';
-import { Mic, Send } from 'lucide-react';
+import { Mic, MicOff, Send } from 'lucide-react';
 import { MessageStore } from '../context/MessagesContext';
 import { MsgType, Sender } from '../utils/enums';
 import { useSpeechRecognition } from 'react-speech-recognition';
 
-export default function TextForm() {
-    const [text, setText] = useState('');
+export type TTextForm = {
+    handleText: (textMsg: string) => void,
+    text: string
+}
+
+export default function TextForm({ handleText, text }: TTextForm) {
     const { addMessage } = useContext(MessageStore)
+    const speechEnabled = localStorage.getItem("speech") ?? "true"
     const [open, setOpen] = useState<boolean>(false)
     const {
         browserSupportsSpeechRecognition
@@ -36,17 +41,19 @@ export default function TextForm() {
             type: Sender.USER
         })
 
-        setText('')
+        handleText('')
     }
 
 
     return (
         <>
             <div className='flex gap-2 w-full items-center'>
-                <input onChange={(e) => setText(e.target.value)} value={text} type="text" placeholder='Write your question here..' className='w-[90%] text-base p-2 rounded-3xl border-2 border-gray-100' />
-                <div className='size-10 p-2 rounded-full bg-gray-400 text-gray-800 cursor-pointer' onClick={() => handleModal()}>
+                <input onChange={(e) => handleText(e.target.value)} value={text} type="text" placeholder='Write your question here..' className='w-[90%] text-base p-2 rounded-3xl border-2 dark:border-gray-500 border-gray-100' />
+                {speechEnabled ? <div className='size-10 p-2 rounded-full bg-gray-400 text-gray-800 cursor-pointer' onClick={() => handleModal()}>
                     <Mic className='size-6' />
-                </div>
+                </div> : <div className='size-10 p-2 rounded-full bg-gray-400 text-gray-800 cursor-pointer'>
+                    <MicOff className='size-6' />
+                </div>}
                 <div className='size-10 p-2 rounded-full bg-blue-600 text-white cursor-pointer' onClick={handleSend}>
                     <Send className='size-6' />
                 </div>

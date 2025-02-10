@@ -3,6 +3,7 @@ import { useContext, useEffect } from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import { MessageStore } from '../context/MessagesContext';
 import { MsgType, Sender } from '../utils/enums';
+import { languages } from '../utils/languages';
 
 
 export type TSpeechModal = {
@@ -12,6 +13,7 @@ export type TSpeechModal = {
 
 export default function SpeechModal({ handleOpen }: TSpeechModal) {
     const { addMessage } = useContext(MessageStore)
+    const language = localStorage.getItem('lang') ?? languages[0]
 
     const {
         transcript,
@@ -20,7 +22,7 @@ export default function SpeechModal({ handleOpen }: TSpeechModal) {
 
 
     useEffect(() => {
-        SpeechRecognition.startListening({ continuous: true })
+        SpeechRecognition.startListening({ continuous: true, language })
     }, [])
 
 

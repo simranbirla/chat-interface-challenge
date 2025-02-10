@@ -2,8 +2,16 @@ import 'regenerator-runtime/runtime'
 import { Route, Routes } from 'react-router'
 import HomePage from './HomePage'
 import SettingsPage from './SettingsPage'
+import { useEffect } from 'react'
+import { languages } from './utils/languages'
 
 function App() {
+
+  useEffect(() => {
+    localStorage.setItem('speech', 'true')
+    localStorage.setItem('lang', languages[0])
+  }, [])
+
 
   return (
     <Routes>
