@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test:open": "npx cypress open",
+    "test:run": "npx cypress run"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.0.5",

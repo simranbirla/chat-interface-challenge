@@ -1,11 +1,9 @@
 describe('Check the end to end stories', () => {
   beforeEach(() => {
-
     cy.visit('http://localhost:3000')
   })
 
   it('display chat box', () => {
-
     cy.get('.chat-box')
   })
 
