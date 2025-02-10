@@ -23,10 +23,6 @@ The application consists of three main components:
 ## 💡 Core Features
 
 ### Chat Interface
-
-![Chat Interface Screenshot](./assets/interface.png)
-
--   Real-time message thread
 -   Speech-to-text input support
 -   Theme switching (dark/light mode)
 -   Quick reply suggestions
@@ -52,106 +48,48 @@ app/
 │   ├── screenshots/
 ├── src/
 │   ├── components/
-│   ├── hooks/
+│   ├── pages/
 │   ├── context/
-│   ├── services/
+│   ├── utils/
 │   └── types/
 ├── Dockerfile
 ├── docker-compose.yml
 └── README.md
 ```
 
-## 🚀 Getting Started
+## Open Project
 
 1. Clone this repository
-2. Review specifications.md
-3. Implement your solution
-4. Test and document
-5. Submit your repository
+2. Install Node
+3. run npm i 
+4. run npm run dev
 
-## 🐳 Docker Setup
+## Architechture:
+The architecture of the project follows a structured and modular approach to ensure scalability and maintainability. The application starts with the Home Page, which serves as the main interface for users to interact with the chat system. At its core, the application consists of a Message Window, where conversations take place. The UI is broken down into distinct components:
 
-Your solution must include proper Docker configuration:
+Header – Contains the Settings button, allowing users to configure preferences such as language, speech enablement, and theme switching.
+Main Message Window – Displays user and AI-generated messages in a scrollable chat interface, ensuring smooth UX with animations.
+Suggestion Panel – Provides quick reply suggestions, enhancing user interaction.
+Input Form – Includes a text input field for typing messages and a microphone button for voice-based input.
+For speech functionality, the app integrates the Web Speech API, enabling speech-to-text conversion for voice messages. The microphone button allows users to speak instead of typing, making the app more accessible.
+Settings Panel: All the settings are stores in local storage so that they persists.
 
-```yaml
-services:
-    app:
-        build: .
-        ports:
-            - "3000:3000"
-        environment:
-            - NODE_ENV=production
-```
+## Tailwind: 
+Used for styling and then using tailwind and context API we toggle between dark and light mode
 
-## 📮 Submission Requirements
+## Vite:
+Bundler used for creating react app
 
-1. Public GitHub repository
-2. Complete source code
-3. Docker configuration
-4. Comprehensive README
-5. Implementation documentation
+## Cypress:
+Used for end to end testing 
 
-### Required Documentation
 
-1. Setup instructions
-2. Architecture overview
-3. Implementation decisions
-4. Testing approach
+# I have also used mock data to show how the chat looks.
 
-## 🎯 Evaluation Criteria
 
-### Technical Excellence (40%)
 
--   Code quality and organization
--   React patterns implementation
--   Performance optimization
--   Error handling
--   Testing approach
 
-### Feature Implementation (30%)
 
--   Chat interface functionality
--   Speech recognition integration
--   State management
--   Theme implementation
--   Responsive design
 
-### Best Practices (30%)
 
--   Documentation quality
--   Git practices
--   Docker configuration
--   Code organization
--   Development setup
 
-## 🎯 Success Criteria
-
-Your solution should demonstrate:
-
--   Clean, maintainable React code
--   Modern component architecture
--   Thoughtful state management
--   Professional documentation
--   Smooth user experience
-
-## 🚀 Running Your Solution
-
-```bash
-# Clone repository
-git clone [your-repository-url]
-
-# Navigate to project
-cd [project-directory]
-
-# Start with Docker
-docker-compose up
-
-# Access application
-open http://localhost:3000
-```
-
-## 🤝 Questions?
-
-For any clarifications, feel free to reach out via LinkedIn.
-
-Ready to showcase your React expertise? Let's see what you can build! 🚀
